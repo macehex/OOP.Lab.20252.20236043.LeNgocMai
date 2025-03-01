@@ -23,11 +23,8 @@ public class Cal {
         // sum
         sum = a + b;
         // difference
-        if (a > b) {
-            difference = a - b;
-        } else {
-            difference = b - a;
-        }
+        difference = a - b;
+        
         // product
         product = a * b;
         quotient = a / b;
