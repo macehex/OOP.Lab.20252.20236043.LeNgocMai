@@ -68,6 +68,14 @@ public class EquationSolver {
             double a_ = Double.parseDouble(bits[0]);
             double b_ = Double.parseDouble(bits[1]);
             double c_ = Double.parseDouble(bits[2]);
+            if (a_==0){
+               // a=0 case
+               double x_ = -(c_/b_);
+               strNotification += "Not a quadratic equation, x = " + x_;
+               JOptionPane.showMessageDialog(null, strNotification, "Solution:", JOptionPane.INFORMATION_MESSAGE);
+               break;
+   
+            }
 
             double discriminant = Math.pow(b_, 2) - 4 * a_ * c_; // (num, power)
             if (discriminant > 0) {
@@ -77,8 +85,8 @@ public class EquationSolver {
                strNotification += "x1 = "+x1+","+" x2 = "+x2;
             } else if (discriminant == 0) {
                // two root = eachother
-               double x1 = (-b_ + Math.sqrt(discriminant)) / (2 * a_);
-               strNotification += "x1 = x2 = "+x1;
+               double x_ = (-b_ + Math.sqrt(discriminant)) / (2 * a_);
+               strNotification += "x1 = x2 = "+x_;
             } else {
                // <0 : no real root 
                strNotification += "no real root possible ";
