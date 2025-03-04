@@ -2,6 +2,7 @@
 // Source code is decompiled from a .class file using FernFlower decompiler.
 import java.awt.Component;
 import javax.swing.JOptionPane;
+import java.lang.Math; // for pow 
 
 public class EquationSolver {
    public static void main(String[] var0) {
@@ -33,9 +34,9 @@ public class EquationSolver {
                  // Enter a b c d e f, with the delimiter "|"
                  // String string ="bla-bla"
             String string = JOptionPane.showInputDialog(null,
-                  "a_1x + b_1y + c_1 = 0\nda_2x +b_2y + c_2 = 0\n Please input a1 b1 c1 a2 b2 c2\n Remember to use ' '(space) as a delimiter!\nExample:\n1x + 2b + 3 = 0\n4x + 5y + 6 = 0. Enter: 1 2 3 4 5 6", 
+                  "a_1x + b_1y + c_1 = 0\nda_2x +b_2y + c_2 = 0\n Please input a1 b1 c1 a2 b2 c2\n Remember to use ' '(space) as a delimiter!\nExample:\n1x + 2b + 3 = 0\n4x + 5y + 6 = 0. Enter: 1 2 3 4 5 6",
                   "Input variables with delimiter", 1);
-            String[] parts = string.split(" ");
+            String[] parts = string.split(" "); // space is the delimiter
             // 0|1|2|3|4|5
             double a1 = Double.parseDouble(parts[0]);
             double b1 = Double.parseDouble(parts[1]);
@@ -57,7 +58,32 @@ public class EquationSolver {
             }
             JOptionPane.showMessageDialog(null, strNotification, "Solution:", JOptionPane.INFORMATION_MESSAGE);
             break;
-         case 3:
+         case 3: // ax*2 + bx + c = 0
+            String longstringhehe = JOptionPane.showInputDialog(null,
+
+                  "ax^2 + bx + c = 0\nInput variables with delimiter\n Please input a b c \nRemember to use ' '(space) as a delimiter!\nExample:\nx^2 + 2x +3 = 0 Enter: 1 2 3 ",
+                  "Input variables with delimiter", 1);
+            String[] bits = longstringhehe.split(" "); // space is the delimiter
+            // 0|1|2|3|4|5
+            double a_ = Double.parseDouble(bits[0]);
+            double b_ = Double.parseDouble(bits[1]);
+            double c_ = Double.parseDouble(bits[2]);
+
+            double discriminant = Math.pow(b_, 2) - 4 * a_ * c_; // (num, power)
+            if (discriminant > 0) {
+               // different two roots
+               double x1 = (-b_ + Math.sqrt(discriminant)) / (2 * a_);
+               double x2 = (-b_ - Math.sqrt(discriminant)) / (2 * a_);
+               strNotification += "x1 = "+x1+","+" x2 = "+x2;
+            } else if (discriminant == 0) {
+               // two root = eachother
+               double x1 = (-b_ + Math.sqrt(discriminant)) / (2 * a_);
+               strNotification += "x1 = x2 = "+x1;
+            } else {
+               // <0 : no real root 
+               strNotification += "no real root possible ";
+            }
+            JOptionPane.showMessageDialog(null, strNotification, "Solution:", JOptionPane.INFORMATION_MESSAGE);
             break;
          default:
             break;
