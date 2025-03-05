@@ -85,10 +85,17 @@ public class Bai65NumericSort {
         // Call mergeSort()
         merge_sort.mergeSort(arr, 0, arr.length - 1);
 
+        //sum using Arrays.stream()
+        int sum = Arrays.stream(arr).sum();
+
+        // average
+        int ave = sum / n; 
+
+
         // Output
         System.out.println("Sorted Array:");
         System.out.println(Arrays.toString(arr));
-
+        System.out.println("The sum of the array is "+sum+", average is "+ave);
         key.close();
     }
 }
