@@ -15,8 +15,7 @@ public class Bai63Triangle {
 
     public static void Triangle(int n) {
         
-        // space before line = ( n - 1 ) - depth +1
-
+        
         for (int i = 1; i <= n; i++) {
             int step = (i * 2) - 1;
             String string = "";
@@ -24,7 +23,9 @@ public class Bai63Triangle {
                 string += "*";
                 step--;
             }
-            int space_cnt = n-i;
+            // space before line = ( n - 1 ) - depth +1
+            // = n - i
+            int space_cnt = n-i; 
             while (space_cnt > 0) {
                 string = " " + string;
                 space_cnt--;
