@@ -1,5 +1,4 @@
 
-// Source code is decompiled from a .class file using FernFlower decompiler.
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import java.lang.Math; // for pow 
@@ -25,7 +24,7 @@ public class EquationSolver {
             }
             double b = Double.parseDouble(num2);
             double x = -(b / a);
-            strNotification += x;
+            strNotification += "x = " + x;
             JOptionPane.showMessageDialog(null, strNotification, "Result of x:", JOptionPane.INFORMATION_MESSAGE);
             break;
          case 2: // ax + by = c
