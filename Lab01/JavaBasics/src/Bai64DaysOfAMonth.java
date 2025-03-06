@@ -91,7 +91,7 @@ public class Bai64DaysOfAMonth {
             days = NormalYearDays(month);
         }
         
-        System.out.println("month "+month + " of " + year + " has " + days + " days");
+        System.out.println(inputmonth + " of " + year + " has " + days + " days");
         keyboard.close();
     }
 
