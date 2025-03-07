@@ -89,7 +89,7 @@ public class Bai65NumericSort {
         int sum = Arrays.stream(arr).sum();
 
         // average
-        int ave = sum / n; 
+        double ave = sum / n; 
 
 
         // Output
