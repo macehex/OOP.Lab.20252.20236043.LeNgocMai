@@ -1,10 +1,6 @@
 package Aims;
 public class Aims {
-    public static void main(String[] args) {
-        //Create new cart
-        Cart anOrder = new Cart();
-        
-        //Create new dvd objects and add them to the cart 
+    public static void main(String[] args) {/*Create new cart*/Cart anOrder = new Cart();//Create new dvd objects and add them to the cart
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King",
                 "Animation", "Roger Allers", 87, 19.95f);
         anOrder.addDigitalVideoDisc(dvd1);
@@ -80,8 +76,6 @@ public class Aims {
         DigitalVideoDisc dvd22 = new DigitalVideoDisc("500 days of Summer", "RomCom", 23.25f);
         anOrder.addDigitalVideoDisc(dvd22);
 
-
-
         anOrder.displayCart();
 
         //method overloading
@@ -103,5 +97,6 @@ public class Aims {
         testCart2.addDigitalVideoDisc(dvda, dvdb);
         testCart2.displayCart();
 
+        System.out.println("The id of dvdb is: " + dvdb.id);
     }
 }
