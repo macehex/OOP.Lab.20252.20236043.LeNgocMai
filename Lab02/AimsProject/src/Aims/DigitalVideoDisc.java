@@ -9,11 +9,14 @@ public class DigitalVideoDisc {
     // Class member : have common variable to all objects(dvds)
     private static int nbDigitalVideoDiscs = 0;
     // instance attribute]
-    int id ;
+    private int id ;
 
     private int incrementId(){
         nbDigitalVideoDiscs ++;
         return id = nbDigitalVideoDiscs;
+    }
+    public int getId(){
+        return id;
     }
     public String getTitle() {
         return title;

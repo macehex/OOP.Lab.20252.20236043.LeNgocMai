@@ -97,6 +97,6 @@ public class Aims {
         testCart2.addDigitalVideoDisc(dvda, dvdb);
         testCart2.displayCart();
 
-        System.out.println("The id of dvdb is: " + dvdb.id);
+        System.out.println("The id of dvdb is: " + dvdb.getId());
     }
 }
