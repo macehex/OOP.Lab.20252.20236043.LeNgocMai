@@ -1,6 +1,4 @@
-package Aims;
-
-import java.util.Objects;
+package hust.soict.itep.aims;
 
 public class TestPassingParameter {
     public static void main(String[] args){
