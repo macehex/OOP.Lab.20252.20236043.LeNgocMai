@@ -1,16 +1,18 @@
-package Aims;
+package hust.soict.itep.aims;
 public class Aims {
-    public static void main(String[] args) {/*Create new cart*/Cart anOrder = new Cart();//Create new dvd objects and add them to the cart
+    public static void main(String[] args) {
+        /*Create new cart*/
+        Cart anOrder = new Cart();//Create new dvd objects and add them to the cart
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King",
                 "Animation", "Roger Allers", 87, 19.95f);
         anOrder.addDigitalVideoDisc(dvd1);
 
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars",
-        "Science Fiction", "George Lucas", 87, 24.95f);
+                "Science Fiction", "George Lucas", 87, 24.95f);
         anOrder.addDigitalVideoDisc(dvd2);
 
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin",
-        "Animation",18.99f);
+                "Animation", 18.99f);
         anOrder.addDigitalVideoDisc(dvd3);
 
         //print total cost of cart
@@ -21,10 +23,10 @@ public class Aims {
         // 13: remove items from the cart
         anOrder.removeDigitalVideoDisc(dvd2);
         DigitalVideoDisc dvd4 = new DigitalVideoDisc("Fight Club",
-                "Action",20.24f);
+                "Action", 20.24f);
         anOrder.addDigitalVideoDisc(dvd4);
         DigitalVideoDisc dvd5 = new DigitalVideoDisc("Forest Gump",
-                "Comedy", "Robert Zemeckis",10.24f);
+                "Comedy", "Robert Zemeckis", 10.24f);
         anOrder.addDigitalVideoDisc(dvd5);
         DigitalVideoDisc dvd6 = new DigitalVideoDisc("Inception", "Sci-Fi", "Christopher Nolan", 12.99f);
         anOrder.addDigitalVideoDisc(dvd6);
@@ -83,8 +85,8 @@ public class Aims {
         Cart testCart = new Cart();
         DigitalVideoDisc[] dvdList = {
                 new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 28.15f),
-                new DigitalVideoDisc("Star Wars", "Sci-Fi",  11.95f),
-                new DigitalVideoDisc("Inception", "Sci-Fi", "Christopher Nolan", 88,10.21f)
+                new DigitalVideoDisc("Star Wars", "Sci-Fi", 11.95f),
+                new DigitalVideoDisc("Inception", "Sci-Fi", "Christopher Nolan", 88, 10.21f)
         };
         testCart.addDigitalVideoDisc(dvdList);
         testCart.displayCart();

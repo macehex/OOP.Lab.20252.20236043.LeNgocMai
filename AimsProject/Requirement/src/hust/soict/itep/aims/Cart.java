@@ -1,6 +1,4 @@
-package Aims;
-
-import Aims.DigitalVideoDisc;
+package hust.soict.itep.aims;
 
 import java.util.ArrayList;
 
