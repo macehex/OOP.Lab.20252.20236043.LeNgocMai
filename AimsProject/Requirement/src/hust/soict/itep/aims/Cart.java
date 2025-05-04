@@ -1,6 +1,7 @@
 package hust.soict.itep.aims;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
@@ -40,6 +41,20 @@ public class Cart {
         }
 
     }
+    public void addDigitalVideoDisc(ArrayList<DigitalVideoDisc> dvdArrayList){
+        //add dvdLíst to cart while checking qty ordered
+        if (qtyOrdered >= 20) {
+            System.out.println("Can't add dvdList to the cart because the cart is full!");
+            return;
+        }
+        for (DigitalVideoDisc dvd : dvdArrayList) {
+            qtyOrdered++;
+            //add disc to the array list
+            itemsOrdered.add(dvd);
+            System.out.println("Added " + dvd.getTitle() + " to the cart");
+        }
+    }
+
     public void addDigitalVideoDisc(DigitalVideoDisc dvd1,DigitalVideoDisc dvd2){
         if (2 + qtyOrdered >= 20) {
             System.out.println("Can't add two dvd to the cart because the cart is full!");
@@ -77,6 +92,85 @@ public class Cart {
             System.out.println((itemsOrdered.indexOf(item) + 1 + "  " + item.getTitle() + "  " + item.getCost()));
         }
         System.out.println("   Total Cost  " + totalCost());
+
+    }
+    public void printCartOrdered(ArrayList<DigitalVideoDisc> dvdlist ){
+        System.out.println("*************************************CART*************************************");
+        System.out.println("Ordered Items");
+    //        Insert block here
+//        Collections.sort(dvdlist);
+        dvdlist.sort((a, b) -> a.getTitle().compareToIgnoreCase(b.getTitle()));
+        int i = 1;
+        for (DigitalVideoDisc item : dvdlist) {
+            System.out.println( String.valueOf(i)+". "+ item.toString(item));
+            i++;
+        }
+        System.out.println("Total cost: "+ totalCost());
+        System.out.println("******************************************************************************");
+    }
+    public void searchDVD(int id){
+        boolean val = false;
+        for(DigitalVideoDisc dvd : itemsOrdered) {
+            val = dvd.isMatch(id);
+            if(val){
+                System.out.println("Found dvd with the id of "+String.valueOf(id)+" :"+dvd.toString(dvd));
+                break;
+            }
+        }
+        if (!val){
+            System.out.println("No match is found for the dvd with the id of "+String.valueOf(id));
+        }
+    }
+
+    public void searchDVD(String keyword){
+        boolean val = false;
+        for(DigitalVideoDisc dvd : itemsOrdered) {
+            if(dvd.isMatch(keyword)){
+                System.out.println("Found dvd with the keyword "+keyword+" :"+dvd.toString(dvd));
+                val = true;
+            }
+        }
+        if (!val){
+            System.out.println("No match is found for the dvd with the keyword "+keyword);
+        }
+    }
+    public void searchDVDCategory(String Category){
+        boolean val = false;
+        for(DigitalVideoDisc dvd : itemsOrdered) {
+
+            if(dvd.isMatchC(Category)){
+                System.out.println("Found dvd with the category of "+Category+" :"+dvd.toString(dvd));
+                val = true;
+            }
+        }
+        if (!val){
+            System.out.println("No match is found for the dvd with the category of "+Category);
+        }
+    }
+    public void searchDVDPrice(double min, double max){
+        boolean val = false;
+        for(DigitalVideoDisc dvd : itemsOrdered) {
+            if(dvd.isInRange(min, max)){
+                System.out.println("Found dvd  with the price in range "+String.format("%.2f", min)+" - "+ String.format("%.2f", max)+" :"+dvd.toString(dvd));
+                val = true;
+            }
+        }
+        if (!val){
+            System.out.println("No match is found for the dvd with the price in range "+String.format("%.2f", min)+" - "+ String.format("%.2f", max));
+        }
+
+    }
+    public void searchDVDPrice(double max){
+        boolean val = false;
+        for(DigitalVideoDisc dvd : itemsOrdered) {
+            if(dvd.isInRange(max)){
+                System.out.println("Found dvd  with the maximum price of " + String.format("%.2f", max)+" :"+dvd.toString(dvd));
+                val = true;
+            }
+        }
+        if (!val){
+            System.out.println("No match is found for the dvd with the maximum price of " + String.format("%.2f", max));
+        }
 
     }
 }   

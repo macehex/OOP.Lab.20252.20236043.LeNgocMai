@@ -1,4 +1,6 @@
 package hust.soict.itep.aims;
+import java.util.ArrayList;
+
 public class Aims {
     public static void main(String[] args) {
         /*Create new cart*/
@@ -100,5 +102,11 @@ public class Aims {
         testCart2.displayCart();
 
         System.out.println("The id of dvdb is: " + dvdb.getId());
+
+
+
+
+//        System.out.println(dvd1.toString(dvd1));
     }
+
 }
