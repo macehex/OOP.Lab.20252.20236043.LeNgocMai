@@ -1,6 +1,6 @@
 package hust.soict.itep.aims.store;
 
-import hust.soict.itep.aims.DigitalVideoDisc;
+import hust.soict.itep.aims.media.DigitalVideoDisc;
 
 public class StoreTest {
     public static void main(String[] args) {

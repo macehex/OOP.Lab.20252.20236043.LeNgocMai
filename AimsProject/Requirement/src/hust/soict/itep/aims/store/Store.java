@@ -1,8 +1,7 @@
 package hust.soict.itep.aims.store;
 
-import hust.soict.itep.aims.DigitalVideoDisc;
+import hust.soict.itep.aims.media.DigitalVideoDisc;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Store {

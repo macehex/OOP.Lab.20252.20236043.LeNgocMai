@@ -1,72 +1,44 @@
-package hust.soict.itep.aims;
+package hust.soict.itep.aims.media;
 
-public class DigitalVideoDisc {
-    private String title;
+public class DigitalVideoDisc extends Media{
     private String category;
     private String director;
     private int length;
-    private double cost;
     // Class member : have common variable to all objects(dvds)
     private static int nbDigitalVideoDiscs = 0;
     // instance attribute]
-    private int id ;
+    private static int incrementId(){
+        return nbDigitalVideoDiscs++;
+    }
 
-    private int incrementId(){
-        nbDigitalVideoDiscs ++;
-        return id = nbDigitalVideoDiscs;
-    }
-    public int getId(){
-        return this.id;
-    }
-    public String getTitle() {
-        return this.title;
-    }
-    public String getCategory() {
-        return this.category;
-    }
     public String getDirector() {
         return this.director;
     }
     public int getLength() {
         return this.length;
     }
-    public double getCost() {
-        return this.cost;
+    public DigitalVideoDisc(String title) {
+        super(incrementId(),title);
     }
-    DigitalVideoDisc(String title) {
-        this.title = title;
-        this.id = incrementId();
-    }
-    DigitalVideoDisc( String title, String category, float cost ) {
-        this.category = category;
-        this.title = title;
-        this.cost = cost;
-        this.id = incrementId();
+    public DigitalVideoDisc( String title, String category, double cost ) {
+        super(incrementId(),title,category,cost);
 
     }
 
     public DigitalVideoDisc(String title, String category, String director, float cost) {
+        super(incrementId(),title,category,cost);
         this.category = category;
-        this.title = title;
-        this.cost = cost;
         this.director = director;
-        this.id = incrementId();
 
     }
 
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+        super(incrementId(),title,category,cost);
         this.category = category;
-        this.title = title;
-        this.cost = cost;
         this.director = director;
         this.length = length;
-        this.id = incrementId();
-
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
     public StringBuilder toString(DigitalVideoDisc dvd){
         StringBuilder sb = new StringBuilder();
         String BlankBox = " - [   ]";
@@ -75,11 +47,11 @@ public class DigitalVideoDisc {
 //        Consider dvd without all of the parameters too
 //        IF parameter is uninitialized-> append a blank box ?? sb.append(BlankBox)
         sb.append("DVD");
-        sb.append(" - [").append(this.title).append("]");
-        if(this.category == null || this.category.isEmpty()){
+        sb.append(" - [").append(getTitle()).append("]");
+        if(this.category == null || getCategory().isEmpty()){
             sb.append(BlankBox);
         }else{
-            sb.append(" - [").append(this.category).append("]");
+            sb.append(" - [").append(getCategory()).append("]");
         }
 
         if(this.director == null || this.director.isEmpty()){
@@ -88,23 +60,23 @@ public class DigitalVideoDisc {
             sb.append(" - [").append(this.director).append("]");
         }
 
-        if(this.length==0){
+        if(this.getLength()==0){
             sb.append(BlankBox);
         }else{
-            sb.append(" - [").append(this.length).append("]");
+            sb.append(" - [").append(this.getLength()).append("]");
         }
 
-        if(this.cost==0.0f){
+        if(getCost()==0.0f){
             sb.append(" : [   ]");
         }else{
-            sb.append(" : [").append(String.format("%.2f", this.cost)).append("]").append("$");
+            sb.append(" : [").append(String.format("%.2f", getCost())).append("]").append("$");
         }
         return sb;
     }
     public boolean isMatch(String keyword){
         //finds out if the corresponding disk is a match given the title ??
         boolean IsMatch = false;
-        if(this.title.contains(keyword)){
+        if(getTitle().contains(keyword)){
             IsMatch = true;
         }
         return IsMatch;
@@ -112,7 +84,7 @@ public class DigitalVideoDisc {
     public boolean isMatchC(String Category){
         //finds out if the corresponding disk is a match given the title ??
         boolean IsMatch = false;
-        if(this.category.equals(Category)){
+        if(getCategory().equals(Category)){
             IsMatch = true;
         }
         return IsMatch;
@@ -128,14 +100,14 @@ public class DigitalVideoDisc {
     }
     public boolean isInRange(double min, double max){
         boolean inRange = false;
-        if(this.cost<=max&&this.cost>=min){
+        if(getCost()<=max&&this.getCost()>=min){
             inRange = true;
         }
         return inRange;
     }
     public boolean isInRange(double max){
         boolean inRange = false;
-        if(this.cost<=max){
+        if(this.getCost()<=max){
             inRange = true;
         }
         return inRange;

@@ -1,7 +1,8 @@
 package hust.soict.itep.aims;
 
+import hust.soict.itep.aims.media.DigitalVideoDisc;
+
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;

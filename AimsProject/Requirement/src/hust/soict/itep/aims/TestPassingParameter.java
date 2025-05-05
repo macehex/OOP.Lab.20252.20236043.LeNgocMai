@@ -1,5 +1,7 @@
 package hust.soict.itep.aims;
 
+import hust.soict.itep.aims.media.DigitalVideoDisc;
+
 public class TestPassingParameter {
     public static void main(String[] args){
         DigitalVideoDisc jungleDVD = new DigitalVideoDisc("Jungle");
