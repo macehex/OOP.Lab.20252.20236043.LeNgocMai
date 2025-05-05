@@ -1,9 +1,6 @@
 package hust.soict.itep.aims.media;
 
-public class DigitalVideoDisc extends Media{
-    private String category;
-    private String director;
-    private int length;
+public class DigitalVideoDisc extends Disc{
     // Class member : have common variable to all objects(dvds)
     private static int nbDigitalVideoDiscs = 0;
     // instance attribute]
@@ -11,32 +8,19 @@ public class DigitalVideoDisc extends Media{
         return nbDigitalVideoDiscs++;
     }
 
-    public String getDirector() {
-        return this.director;
-    }
-    public int getLength() {
-        return this.length;
-    }
     public DigitalVideoDisc(String title) {
         super(incrementId(),title);
     }
     public DigitalVideoDisc( String title, String category, double cost ) {
         super(incrementId(),title,category,cost);
-
     }
 
     public DigitalVideoDisc(String title, String category, String director, float cost) {
-        super(incrementId(),title,category,cost);
-        this.category = category;
-        this.director = director;
-
+        super(incrementId(),title,category,director,cost);
     }
 
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-        super(incrementId(),title,category,cost);
-        this.category = category;
-        this.director = director;
-        this.length = length;
+        super(incrementId(),title,category,director,length,cost);
     }
 
     public StringBuilder toString(DigitalVideoDisc dvd){
@@ -48,16 +32,16 @@ public class DigitalVideoDisc extends Media{
 //        IF parameter is uninitialized-> append a blank box ?? sb.append(BlankBox)
         sb.append("DVD");
         sb.append(" - [").append(getTitle()).append("]");
-        if(this.category == null || getCategory().isEmpty()){
+        if(getCategory() == null || getCategory().isEmpty()){
             sb.append(BlankBox);
         }else{
             sb.append(" - [").append(getCategory()).append("]");
         }
 
-        if(this.director == null || this.director.isEmpty()){
+        if(getDirector() == null || getDirector().isEmpty()){
            sb.append(BlankBox);
         }else{
-            sb.append(" - [").append(this.director).append("]");
+            sb.append(" - [").append(getDirector()).append("]");
         }
 
         if(this.getLength()==0){
@@ -93,7 +77,7 @@ public class DigitalVideoDisc extends Media{
     public boolean isMatch(int ID){
         //finds out if the corresponding disk is a match given the title ??
         boolean IsMatch = false;
-        if(this.id==ID){
+        if(getId()==ID){
             IsMatch = true;
         }
         return IsMatch;
