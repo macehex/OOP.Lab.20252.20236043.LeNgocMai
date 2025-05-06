@@ -1,6 +1,6 @@
 package hust.soict.itep.aims.media;
 
-public class DigitalVideoDisc extends Disc{
+public class DigitalVideoDisc extends Disc implements Playable{
     // Class member : have common variable to all objects(dvds)
     private static int nbDigitalVideoDiscs = 0;
     // instance attribute]
@@ -95,5 +95,9 @@ public class DigitalVideoDisc extends Disc{
             inRange = true;
         }
         return inRange;
+    }
+    public void play() {
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength());
     }
 }
