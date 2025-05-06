@@ -1,5 +1,4 @@
 package hust.soict.itep.aims.cart;
-import hust.soict.itep.aims.Cart;
 import hust.soict.itep.aims.media.DigitalVideoDisc;
 import java.util.ArrayList;
 
