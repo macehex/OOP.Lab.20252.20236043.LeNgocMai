@@ -8,12 +8,6 @@ public abstract class Media {
         private String title;
         private String category;
         private double cost;
-//        private static int numberOfObjects = 0;
-//        private int incrementId(){
-//            numberOfObjects++;
-//            return id = numberOfObjects;
-//        }
-
         public Media(int id, String title, String category, double cost) {
             this.id = id;
             this.title = title;
@@ -56,4 +50,13 @@ public abstract class Media {
         public void setCost(double cost) {
             this.cost = cost;
         }
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || this.getClass() != o.getClass()) return false;
+
+            Media media = (Media) o;
+            return this.title.equals(media.title);
+        }
+
 }

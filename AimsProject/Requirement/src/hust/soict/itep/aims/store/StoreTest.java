@@ -1,6 +1,6 @@
 package hust.soict.itep.aims.store;
 
-import hust.soict.itep.aims.media.DigitalVideoDisc;
+import hust.soict.itep.aims.media.*;
 
 public class StoreTest {
     public static void main(String[] args) {
@@ -9,8 +9,8 @@ public class StoreTest {
 //        Additionally, the manager can also remove DVDs from the store.
         Store store = new Store();
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers",4, 28.15f);
-        store.addDVD(dvd1);
-        store.removeDVD(dvd1);
+        store.addMedia(dvd1);
+        store.removeMedia(dvd1);
     }
 
 }

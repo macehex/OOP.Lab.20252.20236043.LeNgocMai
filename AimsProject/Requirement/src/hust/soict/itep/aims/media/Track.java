@@ -1,6 +1,6 @@
 package hust.soict.itep.aims.media;
 
-public class Track implements Playable{
+public class Track implements Playable {
     private String title;
     private int length;
 
@@ -28,8 +28,19 @@ public class Track implements Playable{
     public Track(String title) {
         this.title = title;
     }
+
     public void play() {
         System.out.println("Playing Track: " + this.getTitle());
         System.out.println("Track's length: " + this.getLength());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || this.getClass() != o.getClass()) return false;
+
+        Track a_track = (Track) o;
+        return this.title.equals(a_track.title) && this.length == a_track.length;
+    }
+
 }

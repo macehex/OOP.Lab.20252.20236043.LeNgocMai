@@ -1,17 +1,15 @@
 package hust.soict.itep.aims.store;
-
-import hust.soict.itep.aims.media.DigitalVideoDisc;
-
+import hust.soict.itep.aims.media.*;
 import java.util.ArrayList;
 
 public class Store {
-    ArrayList<DigitalVideoDisc> itemsInStore = new ArrayList<>();
-    public void addDVD(DigitalVideoDisc dvd){
-        itemsInStore.add(dvd);
-        System.out.println("Added " + dvd.getTitle() + " to the store");
+    ArrayList<Media> itemsInStore = new ArrayList<>();
+    public void addMedia(Media media){
+        itemsInStore.add(media);
+        System.out.println("Added " + media.getTitle() + " to the store");
     }
-    public void removeDVD(DigitalVideoDisc dvd){
-        itemsInStore.remove(dvd);
-        System.out.println("Removed " + dvd.getTitle() + " from the store");
+    public void removeMedia(Media media){
+        itemsInStore.remove(media);
+        System.out.println("Removed " + media.getTitle() + " from the store");
     }
 }

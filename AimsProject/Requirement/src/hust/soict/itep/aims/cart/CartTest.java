@@ -1,5 +1,7 @@
 package hust.soict.itep.aims.cart;
 import hust.soict.itep.aims.media.DigitalVideoDisc;
+import hust.soict.itep.aims.media.Media;
+
 import java.util.ArrayList;
 
 public class CartTest {
@@ -7,7 +9,7 @@ public class CartTest {
         Cart cart = new Cart();
 
         // Create new dvd objects and add them to the cart
-        ArrayList<DigitalVideoDisc> dvdArrayList = new ArrayList<>();
+        ArrayList<Media> dvdArrayList = new ArrayList<>();
 
         dvdArrayList.add(new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 28.15f));
         dvdArrayList.add(new DigitalVideoDisc("Star Wars", "Sci-Fi", null, 11.95f));
@@ -15,7 +17,7 @@ public class CartTest {
 
         dvdArrayList.add(new DigitalVideoDisc("Inception", "Sci-Fi", "Christopher Nolan", 88, 10.21f));
 
-        cart.addDigitalVideoDisc(dvdArrayList);
+        cart.addMedia(dvdArrayList);
         cart.printCartOrdered(dvdArrayList);
 
         //Test search method here
