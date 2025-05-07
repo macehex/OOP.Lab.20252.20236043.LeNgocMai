@@ -71,6 +71,34 @@ public class Book extends Media {
         }
         return sb;
     }
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        String BlankBox = " - [   ]";
+
+//        1. CD - [Title] - [category] - [author],[author],...: [Price]
+//        IF parameter is uninitialized-> append a blank box ?? sb.append(BlankBox)
+        sb.append("Book");
+        sb.append(" - [").append(getTitle()).append("]");
+        if(getCategory() == null || getCategory().isEmpty()){
+            sb.append(BlankBox);
+        }else{
+            sb.append(" - [").append(getCategory()).append("]");
+        }
+        if(getAuthors() == null || getAuthors().isEmpty()){
+            sb.append(BlankBox);
+        }else{
+            for(String author_name : getAuthors()){
+                sb.append(" - [").append(author_name).append("]");
+            }
+        }
+        if(getCost()==0.0f){
+            sb.append(" : [   ]");
+        }else{
+            sb.append(" : [").append(String.format("%.2f", getCost())).append("]").append("$");
+        }
+
+        return sb.toString();
+    }
 
 }
 

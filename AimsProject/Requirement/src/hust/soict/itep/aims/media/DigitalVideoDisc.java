@@ -23,7 +23,7 @@ public class DigitalVideoDisc extends Disc implements Playable{
         super(incrementId(),title,category,director,length,cost);
     }
 
-    public StringBuilder toString(DigitalVideoDisc dvd){
+    public String toString(){
         StringBuilder sb = new StringBuilder();
         String BlankBox = " - [   ]";
 
@@ -51,11 +51,11 @@ public class DigitalVideoDisc extends Disc implements Playable{
         }
 
         if(getCost()==0.0f){
-            sb.append(" : [   ]");
+            sb.append(" : [   ]$");
         }else{
             sb.append(" : [").append(String.format("%.2f", getCost())).append("]").append("$");
         }
-        return sb;
+        return sb.toString();
     }
     public boolean isMatch(String keyword){
         //finds out if the corresponding disk is a match given the title ??

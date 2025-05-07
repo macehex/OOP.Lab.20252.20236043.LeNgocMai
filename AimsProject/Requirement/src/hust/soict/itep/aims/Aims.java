@@ -19,8 +19,8 @@ public class Aims {
         anOrder.addMedia(dvd3);
 
         //print total cost of cart
-        System.out.println("Total cost is: ");
-        System.out.println(anOrder.totalCost());
+        System.out.printf("Total cost is: ");
+        System.out.printf("%.2f\n",anOrder.totalCost());
 
         anOrder.displayCart();
         // 13: remove items from the cart
@@ -85,7 +85,7 @@ public class Aims {
 
 
 
-        System.out.println("The id of dvdb is: " + dvd1.getId());
+        System.out.println("The id of dvd3 is: " + dvd3.getId());
 
 
 

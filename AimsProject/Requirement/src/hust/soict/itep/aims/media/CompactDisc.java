@@ -9,19 +9,24 @@ public class CompactDisc extends Disc implements Playable{
     public String getArtist() {
         return artist;
     }
+    private static int nbCDs = 0;
+    // instance attribute]
+    private static int incrementId(){
+        return nbCDs++;
+    }
 
-    public CompactDisc(int id, String title, String artist) {
-        super(id, title);
+    public CompactDisc(String title, String artist) {
+        super(incrementId(), title);
         this.artist = artist;
     }
 
-    public CompactDisc(int id, String title, String category, double cost, String artist) {
-        super(id, title, category, cost);
+    public CompactDisc(String title, String category, double cost, String artist) {
+        super(incrementId(), title, category, cost);
         this.artist = artist;
     }
 
-    public CompactDisc(int id, String title, String category, String director, int length, double cost, String artist) {
-        super(id, title, category, director, length, cost);
+    public CompactDisc( String title, String category, String director, int length, double cost, String artist) {
+        super(incrementId(), title, category, director, length, cost);
         this.artist = artist;
     }
 //    public CompactDisc(int id, String title, String director, int length, String artist) {
@@ -29,8 +34,8 @@ public class CompactDisc extends Disc implements Playable{
 //        this.artist = artist;
 //    }
 
-    public CompactDisc(int id, String title, String category, String director, float cost, String artist) {
-        super(id, title, category, director, cost);
+    public CompactDisc( String title, String category, String director, float cost, String artist) {
+        super(incrementId(), title, category, director, cost);
         this.artist = artist;
     }
     public void addTrack(String title, int length){
@@ -53,6 +58,8 @@ public class CompactDisc extends Disc implements Playable{
         }
     }
 
+
+
     @Override
     public int getLength() {
         //Length = the combined length of all tracks
@@ -74,4 +81,44 @@ public class CompactDisc extends Disc implements Playable{
 
         }
     }
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        String BlankBox = " - [   ]";
+
+//        1. CD - [Title] - [category] - [Director] - [Length]: [Price] - [artist]$
+//        IF parameter is uninitialized-> append a blank box ?? sb.append(BlankBox)
+        sb.append("CD");
+        sb.append(" - [").append(getTitle()).append("]");
+        if(getCategory() == null || getCategory().isEmpty()){
+            sb.append(BlankBox);
+        }else{
+            sb.append(" - [").append(getCategory()).append("]");
+        }
+
+        if(getDirector() == null || getDirector().isEmpty()){
+            sb.append(BlankBox);
+        }else{
+            sb.append(" - [").append(getDirector()).append("]");
+        }
+
+        if(this.getLength()==0){
+            sb.append(BlankBox);
+        }else{
+            sb.append(" - [").append(this.getLength()).append("]");
+        }
+
+        if(getCost()==0.0f){
+            sb.append(" : [   ]$");
+        }else{
+            sb.append(" : [").append(String.format("%.2f", getCost())).append("]").append("$");
+        }
+        if(getArtist()==null || getArtist().isEmpty()){
+            sb.append(BlankBox);
+        }else{
+            sb.append(" - [").append(getArtist()).append("]");
+        }
+
+        return sb.toString();
+    }
+
 }

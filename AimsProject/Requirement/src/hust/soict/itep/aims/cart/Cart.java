@@ -1,9 +1,10 @@
 package hust.soict.itep.aims.cart;
 
-import hust.soict.itep.aims.media.DigitalVideoDisc;
-import hust.soict.itep.aims.media.Media;
+import hust.soict.itep.aims.media.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
@@ -64,28 +65,28 @@ public class Cart {
 
     public void displayCart() {
         for (Media item : itemsOrdered) {
-            System.out.println((itemsOrdered.indexOf(item) + 1 + "  " + item.getTitle() + "  " + item.getCost()));
+            System.out.println((itemsOrdered.indexOf(item) + 1 + "  " + item.getTitle() + "  " + String.format("%.2f",item.getCost())));
         }
-        System.out.println("   Total Cost  " + totalCost());
+        System.out.println("   Total Cost  " + String.format("%.2f", totalCost()));
 
     }
-    public void printCartOrdered(ArrayList<Media> mediaList ){
-        System.out.println("*************************************CART*************************************");
-        System.out.println("Ordered Items");
-    //        Insert block here
-//        Collections.sort(dvdlist);
-        mediaList.sort((a, b) -> a.getTitle().compareToIgnoreCase(b.getTitle()));
-        int i = 1;
-        for(Media item : mediaList){
-            if (item instanceof DigitalVideoDisc dvd) {
-                System.out.println( String.valueOf(i)+". "+ dvd.toString(dvd));
-                i++;
-            }
-        }
-        System.out.println("Total cost of Cart including dvds : "+ totalCost());
-        System.out.println("******************************************************************************");
-    }
-
+//    public void printCartOrdered(ArrayList<Media> mediaList ){
+//        System.out.println("*************************************CART*************************************");
+//        System.out.println("Ordered Items");
+//    //        Insert block here
+////        Collections.sort(dvdlist);
+//        mediaList.sort((a, b) -> a.getTitle().compareToIgnoreCase(b.getTitle()));
+//        int i = 1;
+//        for(Media item : mediaList){
+//            if (item instanceof DigitalVideoDisc dvd) {
+//                System.out.println( String.valueOf(i)+". "+ dvd.toString());
+//                i++;
+//            }
+//        }
+//        System.out.println("Total cost of Cart including dvds : "+ totalCost());
+//        System.out.println("******************************************************************************");
+//    }
+//
 
     public void searchDVD(int id){
         boolean val = false;
@@ -109,7 +110,7 @@ public class Cart {
         for (Media mediaItem : itemsOrdered) {
             if (mediaItem instanceof DigitalVideoDisc dvd) {
                 if(dvd.isMatch(keyword)){
-                    System.out.println("Found dvd with the keyword "+keyword+" :"+dvd.toString(dvd));
+                    System.out.println("Found dvd with the keyword "+keyword+" :"+dvd.toString());
                     val = true;
                 }
             }
@@ -124,7 +125,7 @@ public class Cart {
         for(Media mediaItem : itemsOrdered){
             if(mediaItem instanceof DigitalVideoDisc dvd) {
                 if(dvd.isMatchC(Category)){
-                    System.out.println("Found dvd with the category of "+Category+" :"+dvd.toString(dvd));
+                    System.out.println("Found dvd with the category of "+Category+" :"+dvd.toString());
                     val = true;
                 }
             }
@@ -138,7 +139,7 @@ public class Cart {
         for(Media mediaItem : itemsOrdered) {
             if(mediaItem instanceof DigitalVideoDisc dvd){
                 if(dvd.isInRange(min, max)){
-                    System.out.println("Found dvd  with the price in range "+String.format("%.2f", min)+" - "+ String.format("%.2f", max)+" :"+dvd.toString(dvd));
+                    System.out.println("Found dvd  with the price in range "+String.format("%.2f", min)+" - "+ String.format("%.2f", max)+" :"+dvd.toString());
                     val = true;
                 }
             }
@@ -153,7 +154,7 @@ public class Cart {
         for(Media mediaItem : itemsOrdered) {
             if(mediaItem instanceof DigitalVideoDisc dvd){
                 if(dvd.isInRange(max)){
-                    System.out.println("Found dvd  with the maximum price of " + String.format("%.2f", max)+" :"+dvd.toString(dvd));
+                    System.out.println("Found dvd  with the maximum price of " + String.format("%.2f", max)+" :"+dvd.toString());
                     val = true;
                 }
             }
@@ -163,4 +164,17 @@ public class Cart {
         }
 
     }
+    public void printCartOrdered(ArrayList<Media>  mediaArrayList) {
+        System.out.println("*************************************CART*************************************");
+        System.out.println("Ordered Items:");
+//        mediaArrayList.sort(Media.COMPARE_BY_TITLE_COST);
+        Collections.sort(mediaArrayList, Media.COMPARE_BY_TITLE_COST);
+
+        for (Media item : mediaArrayList) {
+            System.out.println(item);
+        }
+        System.out.printf("Total cost of Cart including dvds : %.2f\n", totalCost());
+        System.out.println("******************************************************************************");
+    }
+
 }   
