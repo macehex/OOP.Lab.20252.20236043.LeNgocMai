@@ -2,25 +2,21 @@ package hust.soict.itep.aims.media;
 
 public class DigitalVideoDisc extends Disc implements Playable{
     // Class member : have common variable to all objects(dvds)
-    private static int nbDigitalVideoDiscs = 0;
-    // instance attribute]
-    private static int incrementId(){
-        return nbDigitalVideoDiscs++;
-    }
+
 
     public DigitalVideoDisc(String title) {
-        super(incrementId(),title);
+        super(title);
     }
     public DigitalVideoDisc( String title, String category, double cost ) {
-        super(incrementId(),title,category,cost);
+        super(title,category,cost);
     }
 
-    public DigitalVideoDisc(String title, String category, String director, float cost) {
-        super(incrementId(),title,category,director,cost);
+    public DigitalVideoDisc(String title, String category, String director, double cost) {
+        super(title,category,director,cost);
     }
 
-    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-        super(incrementId(),title,category,director,length,cost);
+    public DigitalVideoDisc(String title, String category, String director, int length, double cost) {
+        super(title,category,director,length,cost);
     }
 
     public String toString(){
@@ -59,42 +55,14 @@ public class DigitalVideoDisc extends Disc implements Playable{
     }
     public boolean isMatch(String keyword){
         //finds out if the corresponding disk is a match given the title ??
-        boolean IsMatch = false;
-        if(getTitle().contains(keyword)){
-            IsMatch = true;
-        }
-        return IsMatch;
-    }
-    public boolean isMatchC(String Category){
-        //finds out if the corresponding disk is a match given the title ??
-        boolean IsMatch = false;
-        if(getCategory().equals(Category)){
-            IsMatch = true;
-        }
-        return IsMatch;
+        return getTitle().contains(keyword);
     }
 
-    public boolean isMatch(int ID){
-        //finds out if the corresponding disk is a match given the title ??
-        boolean IsMatch = false;
-        if(getId()==ID){
-            IsMatch = true;
-        }
-        return IsMatch;
-    }
     public boolean isInRange(double min, double max){
-        boolean inRange = false;
-        if(getCost()<=max&&this.getCost()>=min){
-            inRange = true;
-        }
-        return inRange;
+        return getCost() <= max && this.getCost() >= min;
     }
     public boolean isInRange(double max){
-        boolean inRange = false;
-        if(this.getCost()<=max){
-            inRange = true;
-        }
-        return inRange;
+        return this.getCost() <= max;
     }
     public void play() {
         System.out.println("Playing DVD: " + this.getTitle());

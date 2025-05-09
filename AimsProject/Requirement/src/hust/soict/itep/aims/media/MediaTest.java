@@ -26,7 +26,7 @@ public class MediaTest {
         }
         Cart cart = new Cart();
         cart.addMedia(medias);
-        cart.printCartOrdered(medias);
+        cart.printCartOrdered();
     }
 
 }

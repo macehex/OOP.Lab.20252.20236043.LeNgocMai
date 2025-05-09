@@ -4,19 +4,15 @@ import java.util.ArrayList;
 
 public class Book extends Media {
     private ArrayList<String> authors = new ArrayList<String>();
-    private static int nbBooks = 0;
-    // instance attribute]
-    private static int incrementId(){
-        return nbBooks++;
-    }
+
     public Book(String title) {
-        super(incrementId(), title);
+        super(title);
     }
-    public Book(String title, String category, float cost) {
-        super(incrementId(), title, category, cost);
+    public Book(String title, String category, double cost) {
+        super(title, category, cost);
     }
-    public Book(String title, String category, float cost, ArrayList<String> authors) {
-        super(incrementId(), title, category, cost);
+    public Book(String title, String category, double cost, ArrayList<String> authors) {
+        super(title, category, cost);
         this.authors = authors;
     }
 

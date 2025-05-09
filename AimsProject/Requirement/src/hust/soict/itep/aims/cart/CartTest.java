@@ -18,7 +18,7 @@ public class CartTest {
         dvdArrayList.add(new DigitalVideoDisc("Inception", "Sci-Fi", "Christopher Nolan", 88, 10.21f));
 
         cart.addMedia(dvdArrayList);
-        cart.printCartOrdered(dvdArrayList);
+        cart.printCartOrdered();
 
         //Test search method here
         // Search by id

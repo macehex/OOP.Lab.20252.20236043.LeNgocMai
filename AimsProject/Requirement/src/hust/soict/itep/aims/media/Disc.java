@@ -11,26 +11,26 @@ public class Disc extends Media {
     public String getDirector() {
         return director;
     }
-    public Disc(int id, String title) {
-        super(id,title);
+    public Disc(String title) {
+        super(title);
     }
-    public Disc( int id, String title, String category, double cost ) {
-        super(id,title,category,cost);
+    public Disc( String title, String category, double cost ) {
+        super(title,category,cost);
     }
-    public Disc(int id, String title, String category, String director, int length, double cost) {
-        super(id, title, category, cost);
+    public Disc(String title, String category, String director, int length, double cost) {
+        super( title, category, cost);
         this.director = director;
         this.length = length;
     }
 
-    public Disc(int id, String title, String director, int length) {
-        super(id, title);
+    public Disc(String title, String director, int length) {
+        super( title);
         this.director = director;
         this.length = length;
     }
 
-    public Disc(int id, String title, String category, String director, double cost) {
-        super(id,title,category,cost);
+    public Disc(String title, String category, String director, double cost) {
+        super(title,category,cost);
         this.director=director;
     }
 }

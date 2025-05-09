@@ -6,22 +6,26 @@ import java.util.Comparator;
 public abstract class Media {
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
-
+    private static int nbMedias = 0;
+    // instance attribute]
+    private static int incrementId(){
+        return nbMedias++;
+    }
     protected int id;
     private String title;
     private String category;
     private double cost;
 
-    public Media(int id, String title, String category, double cost) {
-        this.id = id;
+    public Media(String title, String category, double cost) {
+        this.id = incrementId();
         this.title = title;
         this.category = category;
         this.cost = cost;
     }
 
-    public Media(int id, String title) {
+    public Media(String title) {
         this.title = title;
-        this.id = id;
+        this.id = incrementId();
     }
 
     public int getId() {
@@ -64,5 +68,19 @@ public abstract class Media {
         Media media = (Media) o;
         return this.title.equals(media.title);
     }
+    public boolean isMatch(int ID){
+        //finds out if the corresponding disk is a match given the title ??
+        return getId() == ID;
+    }
+    public boolean isMatch(String title){
+        //finds out if the corresponding disk is a match given the title ??
+        return getTitle().equals(title);
+    }
+    public boolean isMatchC(String Category){
+        //finds out if the corresponding disk is a match given the category ??
+        return getCategory().equals(Category);
+    }
+
+
 
 }

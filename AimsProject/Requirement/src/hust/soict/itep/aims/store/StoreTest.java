@@ -10,8 +10,8 @@ public class StoreTest {
         Store store = new Store();
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers",4, 28.15f);
         store.addMedia(dvd1);
+        dvd1.play();
         store.removeMedia(dvd1);
-
     }
 
 }

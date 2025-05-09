@@ -9,24 +9,22 @@ public class CompactDisc extends Disc implements Playable{
     public String getArtist() {
         return artist;
     }
-    private static int nbCDs = 0;
-    // instance attribute]
-    private static int incrementId(){
-        return nbCDs++;
-    }
+
 
     public CompactDisc(String title, String artist) {
-        super(incrementId(), title);
+        super(title);
         this.artist = artist;
     }
-
+    public CompactDisc(String title,String  category,double cost){
+        super(title, category, cost);
+    }
     public CompactDisc(String title, String category, double cost, String artist) {
-        super(incrementId(), title, category, cost);
+        super(title, category, cost);
         this.artist = artist;
     }
 
     public CompactDisc( String title, String category, String director, int length, double cost, String artist) {
-        super(incrementId(), title, category, director, length, cost);
+        super(title, category, director, length, cost);
         this.artist = artist;
     }
 //    public CompactDisc(int id, String title, String director, int length, String artist) {
@@ -34,8 +32,8 @@ public class CompactDisc extends Disc implements Playable{
 //        this.artist = artist;
 //    }
 
-    public CompactDisc( String title, String category, String director, float cost, String artist) {
-        super(incrementId(), title, category, director, cost);
+    public CompactDisc( String title, String category, String director, double cost, String artist) {
+        super(title, category, director, cost);
         this.artist = artist;
     }
     public void addTrack(String title, int length){
