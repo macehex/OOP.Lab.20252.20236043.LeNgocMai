@@ -168,7 +168,10 @@ public class Aims {
                 String title = input.nextLine();
                 if (store.isMediaInStore(title)) {
                     mediaDetailsMenu(store.returnMediaFromTitle(title),store,userCart);
+                }else {
+                    System.out.println("Media is not in store!");
                 }
+                storeMenu(store,userCart);
                 break;
             case 2:
                 System.out.println("Enter the title of the media to add to cart");
@@ -249,10 +252,8 @@ public class Aims {
                 System.out.println("0. Back");
                 System.out.println("--------------------------------");
                 System.out.println("Please choose a number: 0-1-2");
-                userCart.printCartOrdered();
-                userCart.printCartOrderedbyCost();
-                int value = Integer.valueOf(input.nextLine());
-                switch (value) {
+                int value2 = Integer.valueOf(input.nextLine());
+                switch (value2) {
                     case 1:
                         userCart.printCartOrdered();
                         cartMenu(store, userCart);
@@ -261,7 +262,6 @@ public class Aims {
                     case 2:
                         userCart.printCartOrderedbyCost();
                         cartMenu(store, userCart);
-
                         break;
                     default:
                         cartMenu(store, userCart);
@@ -278,7 +278,12 @@ public class Aims {
                 String mediaName = input.nextLine();
                 // fetch media
                 //play media
-                userCart.playMediaFromTitle(mediaName);
+                if(userCart.isMediaInCart(mediaName)){
+                    userCart.playMediaFromTitle(mediaName);
+                }else{
+                    System.out.println("Can't find media in cart!");
+                }
+                cartMenu(store,userCart);
                 break;
             case 5:
                 System.out.println("An order is created");

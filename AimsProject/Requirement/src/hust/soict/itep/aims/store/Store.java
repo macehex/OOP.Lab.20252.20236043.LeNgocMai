@@ -21,8 +21,6 @@ public class Store {
     public void printStoreOrdered() {
         //yanked from printCartOrdered
         System.out.println("*************************************STORE*************************************");
-        System.out.println("Ordered Items:");
-//        mediaArrayList.sort(Media.COMPARE_BY_TITLE_COST);
         Collections.sort(itemsInStore, Media.COMPARE_BY_TITLE_COST);
 
         for (Media item : itemsInStore) {
