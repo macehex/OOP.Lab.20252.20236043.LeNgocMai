@@ -86,6 +86,8 @@ public class AddItemToStoreScreen extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Add Book Item");
+                new AddBookToStoreScreen(store);
+                dispose();
             }
         });
         addCDItem.addActionListener(new ActionListener() {
@@ -112,9 +114,4 @@ public class AddItemToStoreScreen extends JFrame{
         center.add(cell3);
         return center;
     }
-    public static void main(String[] args) {
-        Store store = new Store();
-        startScreen = new AddItemToStoreScreen(store);
-    }
-
 }

@@ -46,7 +46,7 @@ public class AddTrackToCompactDisc extends AddItemToStoreScreen{
                 try {
                     int length = Integer.parseInt(cell2.data);
 
-                    cd.addTrack(new Track(cell1.data, length));
+                    cd.addTrack(cell1.data, length);
 
                     System.out.println("Button worked, add track to cd ");
                 } catch (NumberFormatException ex) {

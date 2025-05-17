@@ -116,6 +116,9 @@ public class StoreManagerScreen extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Add Book Item");
+                new AddBookToStoreScreen(store);
+                dispose();
+
             }
         });
         addCDItem.addActionListener(new ActionListener() {

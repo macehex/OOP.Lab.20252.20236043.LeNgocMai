@@ -51,11 +51,11 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen{
                 double cost = Double.parseDouble(cell4.data);
                 String artist = cell5.data;
                 CompactDisc cd = new CompactDisc(cell1.data, cell2.data, cell3.data, cost,artist);
+                System.out.println("Button worked, init add track to cd procedure");
 
                 AddTrackToCompactDisc trackPanel = new AddTrackToCompactDisc(store,cd);
                 store.addMedia(cd);
 
-                System.out.println("Button worked, init add track to cd procedure");
             } catch (NumberFormatException ex) {
                 // If parsing fails, catch the exception
                 System.err.println("Invalid number format for length or cost");

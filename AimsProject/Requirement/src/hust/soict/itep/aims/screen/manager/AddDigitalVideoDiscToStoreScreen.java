@@ -52,7 +52,7 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen{
 
                 DigitalVideoDisc dvd = new DigitalVideoDisc(cell1.data, cell2.data, cell3.data, length, cost);
                 store.addMedia(dvd);
-                System.out.println("Button worked, added Media to store");
+                System.out.println("Button worked, added DVD to store");
             } catch (NumberFormatException ex) {
                 // If parsing fails, catch the exception
                 System.err.println("Invalid number format for length or cost");
