@@ -5,6 +5,8 @@ import hust.soict.itep.aims.store.Store;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen{
 
@@ -31,7 +33,14 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen{
 
         center.add(button);
 
-        addDVD(cell1,cell2,cell3,cell4,cell5);
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                button.isButtonClicked = true;
+                addDVD(cell1,cell2,cell3,cell4,cell5);
+
+            }
+        });
 
         return center;
     }
@@ -43,7 +52,7 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen{
 
                 DigitalVideoDisc dvd = new DigitalVideoDisc(cell1.data, cell2.data, cell3.data, length, cost);
                 store.addMedia(dvd);
-                System.out.println("Button worked");
+                System.out.println("Button worked, added Media to store");
             } catch (NumberFormatException ex) {
                 // If parsing fails, catch the exception
                 System.err.println("Invalid number format for length or cost");

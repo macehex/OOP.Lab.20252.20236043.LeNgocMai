@@ -100,6 +100,8 @@ public class StoreManagerScreen extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("View store");
+                startScreen = new StoreManagerScreen(store);
+                dispose();
             }
         });
         addDVDItem.addActionListener(new ActionListener() {

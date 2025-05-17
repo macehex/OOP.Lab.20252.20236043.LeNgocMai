@@ -78,8 +78,8 @@ public class AddItemToStoreScreen extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Add DVD Item");
-                dispose();
                 new AddDigitalVideoDiscToStoreScreen(store);
+                dispose();
             }
         });
         addBookItem.addActionListener(new ActionListener() {
