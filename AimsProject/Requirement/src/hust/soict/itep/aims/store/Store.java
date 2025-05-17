@@ -91,6 +91,8 @@ public class Store {
         store.addMedia(media);
         System.out.println("Media added to store.");
     }
-
+    public ArrayList<Media> getItemsInStore(){
+        return itemsInStore;
+    }
 
 }
