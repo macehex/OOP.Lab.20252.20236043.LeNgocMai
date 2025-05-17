@@ -3,8 +3,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-
-
 public class SwingAccumulator extends JFrame {
     private JTextField tfInput;
     private JTextField tfOutput;
@@ -45,4 +43,5 @@ public class SwingAccumulator extends JFrame {
             tfOutput.setText(sum + "");
         }
     }
+
 }

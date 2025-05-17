@@ -1,57 +1,28 @@
 package hust.soict.itep.aims.screen.manager;
 
-import hust.soict.itep.aims.cart.Cart;
-import hust.soict.itep.aims.media.Book;
-import hust.soict.itep.aims.media.CompactDisc;
-import hust.soict.itep.aims.media.DigitalVideoDisc;
-import hust.soict.itep.aims.media.Media;
 import hust.soict.itep.aims.store.Store;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
-public class StoreManagerScreen extends JFrame{
-    private Store store;
-    private static JFrame startScreen;
-    public static void main(String[] args) {
-        Store store = new Store();
-        DigitalVideoDisc dvd17 = new DigitalVideoDisc("Finding Nemo", "Animation", "Andrew Stanton", 9.99f);
-        store.addMedia(dvd17);
-        DigitalVideoDisc dvd18 = new DigitalVideoDisc("Toy Story", "Animation", "John Lasseter", 10.50f);
-        store.addMedia(dvd18);
-        DigitalVideoDisc dvd19 = new DigitalVideoDisc("Frozen", "Animation", "Chris Buck & Jennifer Lee", 12.75f);
-        store.addMedia(dvd19);
-        DigitalVideoDisc dvd20 = new DigitalVideoDisc("Coco", "Animation", "Lee Unkrich", 13.25f);
-        store.addMedia(dvd20);
-        Book book1 = new Book("How to get rich");
-        store.addMedia(book1);
-        Book book2 = new Book("The guide to meditations");
-        store.addMedia(book2);
-        CompactDisc cd1 = new CompactDisc("Top 10 mix","Mix tapes", 3.23);
-        store.addMedia(cd1);
-        startScreen = new StoreManagerScreen(store);
-
-    }
-
-
-
-    public StoreManagerScreen(Store store){
+public class AddItemToStoreScreen extends JFrame{
+    protected Store store;
+    protected static JFrame startScreen;
+    AddMediaButton button;
+    public AddItemToStoreScreen(Store store){
         this.store = store;
         Container cp = getContentPane();
         cp.setLayout(new BorderLayout());
         cp.add(createNorth(), BorderLayout.NORTH);
         cp.add(createCenter(), BorderLayout.CENTER);
-
-        setTitle("Store");
+        setTitle("Add Media to Store");
         setSize(1024,768);
         setLocationRelativeTo(null);
         setVisible(true);
+
     }
-
-
     JPanel createNorth() {
         JPanel north = new JPanel();
         north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
@@ -59,7 +30,6 @@ public class StoreManagerScreen extends JFrame{
         north.add(createHeader());
         return north;
     }
-
     JPanel  createHeader() {
         JPanel header = new JPanel();
         header.setLayout(new BoxLayout(header, BoxLayout.X_AXIS));
@@ -100,14 +70,16 @@ public class StoreManagerScreen extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("View store");
+                startScreen = new StoreManagerScreen(store);
+                dispose();
             }
         });
         addDVDItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Add DVD Item");
-                startScreen = new AddDigitalVideoDiscToStoreScreen(store);
                 dispose();
+                new AddDigitalVideoDiscToStoreScreen(store);
             }
         });
         addBookItem.addActionListener(new ActionListener() {
@@ -124,18 +96,22 @@ public class StoreManagerScreen extends JFrame{
         });
         return menuBar;
     }
+
     JPanel createCenter(){
         JPanel center = new JPanel();
-        center.setLayout(new GridLayout(3,3,2,2));
+        center.setLayout(new GridLayout(6,2,2,2));
 
-        ArrayList<Media> mediaInStore = store.getItemsInStore();
-        for (int i =0; i<9;i++){
-
-            if(i<=mediaInStore.size()){
-                MediaStore cell = new MediaStore(mediaInStore.get(i));
-                center.add(cell);
-            }
-        }
+        UpdateValues cell1 = new UpdateValues("Enter title");
+        center.add(cell1);
+        UpdateValues cell2 = new UpdateValues("Enter category");
+        center.add(cell2);
+        UpdateValues cell3 = new UpdateValues("Enter cost");
+        center.add(cell3);
         return center;
     }
+    public static void main(String[] args) {
+        Store store = new Store();
+        startScreen = new AddItemToStoreScreen(store);
+    }
+
 }
