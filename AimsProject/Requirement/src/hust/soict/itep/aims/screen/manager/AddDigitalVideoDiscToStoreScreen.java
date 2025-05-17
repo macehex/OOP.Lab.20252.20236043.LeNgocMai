@@ -19,15 +19,15 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen{
         JPanel center = new JPanel();
         center.setLayout(new GridLayout(6,2,2,2));
 
-        UpdateValues cell1 = new UpdateValues("Enter title");
+        UpdateValues cell1 = new UpdateValues("Enter DVD's title");
         center.add(cell1);
-        UpdateValues cell2 = new UpdateValues("Enter category");
+        UpdateValues cell2 = new UpdateValues("Enter DVD's category");
         center.add(cell2);
-        UpdateValues cell3 = new UpdateValues("Enter director");
+        UpdateValues cell3 = new UpdateValues("Enter DVD's director");
         center.add(cell3);
-        UpdateValues cell4 = new UpdateValues("Enter length");
+        UpdateValues cell4 = new UpdateValues("Enter DVD's length");
         center.add(cell4);
-        UpdateValues cell5 = new UpdateValues("Enter cost");
+        UpdateValues cell5 = new UpdateValues("Enter DVD's cost");
         center.add(cell5);
         button = new AddMediaButton("DVD");
 

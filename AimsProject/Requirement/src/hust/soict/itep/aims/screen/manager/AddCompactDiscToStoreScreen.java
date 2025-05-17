@@ -20,15 +20,15 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen{
         JPanel center = new JPanel();
         center.setLayout(new GridLayout(6,2,2,2));
 
-        UpdateValues cell1 = new UpdateValues("Enter title");
+        UpdateValues cell1 = new UpdateValues("Enter cd's title");
         center.add(cell1);
-        UpdateValues cell2 = new UpdateValues("Enter category");
+        UpdateValues cell2 = new UpdateValues("Enter cd's category");
         center.add(cell2);
-        UpdateValues cell3 = new UpdateValues("Enter director");
+        UpdateValues cell3 = new UpdateValues("Enter cd's director");
         center.add(cell3);
-        UpdateValues cell4 = new UpdateValues("Enter cost");
+        UpdateValues cell4 = new UpdateValues("Enter cd's cost");
         center.add(cell4);
-        UpdateValues cell5 = new UpdateValues("Enter artist");
+        UpdateValues cell5 = new UpdateValues("Enter cd's artist");
         center.add(cell5);
         button = new AddMediaButton("CD");
 
@@ -39,7 +39,7 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen{
             public void actionPerformed(ActionEvent e) {
                 button.isButtonClicked = true;
                 addCD(cell1,cell2,cell3,cell4,cell5);
-
+                dispose();
             }
         });
 

@@ -14,7 +14,7 @@ public class AddTrackToCompactDisc extends AddItemToStoreScreen{
     public AddTrackToCompactDisc(Store store, CompactDisc cd) {
         super(store);
         this.cd = cd;
-        setTitle("Add Track to CD");
+        setTitle("Add Track to CD: "+cd.getTitle());
     }
 
         @Override
@@ -22,11 +22,11 @@ public class AddTrackToCompactDisc extends AddItemToStoreScreen{
             JPanel center = new JPanel();
             center.setLayout(new GridLayout(3,2,2,2));
 
-            UpdateValues cell1 = new UpdateValues("Enter title");
+            UpdateValues cell1 = new UpdateValues("Enter track's title");
             center.add(cell1);
-            UpdateValues cell2 = new UpdateValues("Enter length");
+            UpdateValues cell2 = new UpdateValues("Enter track's length");
             center.add(cell2);
-            button = new AddMediaButton("Track");
+            button = new AddMediaButton("Track for: "+cd.getTitle());
 
             center.add(button);
 
@@ -61,4 +61,4 @@ public class AddTrackToCompactDisc extends AddItemToStoreScreen{
                 System.out.println("Error");
             }
         }
-    }
+}
