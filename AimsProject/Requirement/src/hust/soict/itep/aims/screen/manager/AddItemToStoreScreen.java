@@ -92,7 +92,10 @@ public class AddItemToStoreScreen extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Add CD Item");
+                new AddCompactDiscToStoreScreen(store);
+                dispose();
             }
+
         });
         return menuBar;
     }

@@ -46,6 +46,17 @@ public class CompactDisc extends Disc implements Playable{
             System.out.println("Ädded "+title+" to tracks");
         }
     }
+    public void addTrack(Track track){
+        //Check track title first!
+        String title = track.getTitle();
+        int length= track.getLength();
+        if(tracks.stream().anyMatch(t -> t.getTitle().equals(title))){
+            System.out.println("Track title: "+ title+" already exist in tracks list!");
+        }else {
+            tracks.add(new Track(title,length));
+            System.out.println("Ädded "+title+" to tracks");
+        }
+    }
     public void removeTrack(String title){
         if(tracks.stream().anyMatch(t -> t.getTitle().equals(title))){
             tracks.removeIf(track -> track.getTitle().equals(title));
