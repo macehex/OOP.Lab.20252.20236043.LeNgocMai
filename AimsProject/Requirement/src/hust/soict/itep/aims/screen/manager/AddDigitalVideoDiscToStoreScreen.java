@@ -38,7 +38,7 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen{
     private void addDVD(UpdateValues cell1,UpdateValues cell2,UpdateValues cell3,UpdateValues cell4,UpdateValues cell5){
         if(button.isButtonClicked){
             try {
-                int length = Integer.valueOf(cell4.data);
+                int length = Integer.parseInt(cell4.data);
                 double cost = Double.parseDouble(cell5.data);
 
                 DigitalVideoDisc dvd = new DigitalVideoDisc(cell1.data, cell2.data, cell3.data, length, cost);
