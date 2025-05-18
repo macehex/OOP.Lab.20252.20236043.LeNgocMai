@@ -18,11 +18,11 @@ public class StoreManagerScreen extends JFrame{
     private static JFrame startScreen;
     public static void main(String[] args) {
         Store store = new Store();
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc("Finding Nemo", "Animation", "Andrew Stanton", 9.99f);
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc("Finding Nemo", "Animation", "Andrew Stanton", 9.99);
         store.addMedia(dvd1);
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Coco", "Animation", "Lee Unkrich", 13,5.3f);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Coco", "Animation", "Lee Unkrich", 13,5.3);
         store.addMedia(dvd2);
-        Book book1 = new Book("How to get rich","Self-Help",12.4f);
+        Book book1 = new Book("How to get rich","Self-Help",12.4);
         store.addMedia(book1);
         CompactDisc cd1 = new CompactDisc("New York mix","Mix tapes", 3.23);
         cd1.addTrack("Summer vibes", 1);
