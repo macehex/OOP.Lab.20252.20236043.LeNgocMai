@@ -22,16 +22,20 @@ public class StoreManagerScreen extends JFrame{
         store.addMedia(dvd17);
         DigitalVideoDisc dvd18 = new DigitalVideoDisc("Toy Story", "Animation", "John Lasseter", 10.50f);
         store.addMedia(dvd18);
-        DigitalVideoDisc dvd19 = new DigitalVideoDisc("Frozen", "Animation", "Chris Buck & Jennifer Lee", 12.75f);
-        store.addMedia(dvd19);
-        DigitalVideoDisc dvd20 = new DigitalVideoDisc("Coco", "Animation", "Lee Unkrich", 13.25f);
+        DigitalVideoDisc dvd20 = new DigitalVideoDisc("Coco", "Animation", "Lee Unkrich", 13,5.3f);
         store.addMedia(dvd20);
         Book book1 = new Book("How to get rich");
         store.addMedia(book1);
         Book book2 = new Book("The guide to meditations");
         store.addMedia(book2);
-        CompactDisc cd1 = new CompactDisc("Top 10 mix","Mix tapes", 3.23);
+        CompactDisc cd1 = new CompactDisc("New York mix","Mix tapes", 3.23);
+        cd1.addTrack("Summer vibes", 1);
+        cd1.addTrack("Soho", 1);
+        cd1.addTrack("Midnight blue", 2);
         store.addMedia(cd1);
+        CompactDisc cd2 = new CompactDisc("Jazzy Night","Single Album", 3.23);
+        store.addMedia(cd2);
+
         startScreen = new StoreManagerScreen(store);
 
     }

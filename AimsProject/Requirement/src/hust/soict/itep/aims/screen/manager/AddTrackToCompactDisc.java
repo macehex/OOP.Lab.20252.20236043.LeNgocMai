@@ -14,7 +14,7 @@ public class AddTrackToCompactDisc extends AddItemToStoreScreen{
     public AddTrackToCompactDisc(Store store, CompactDisc cd) {
         super(store);
         this.cd = cd;
-        setTitle("Add Track to CD: "+cd.getTitle());
+        setTitle("Add Track to CD");
     }
 
         @Override
@@ -26,7 +26,7 @@ public class AddTrackToCompactDisc extends AddItemToStoreScreen{
             center.add(cell1);
             UpdateValues cell2 = new UpdateValues("Enter track's length");
             center.add(cell2);
-            button = new AddMediaButton("Track for: "+cd.getTitle());
+            button = new AddMediaButton("Track for cd ");
 
             center.add(button);
 

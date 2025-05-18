@@ -2,7 +2,7 @@ package hust.soict.itep.aims.media;
 
 public class Disc extends Media {
     private String director;
-    private int length;
+    private int length = 0;
 
     public int getLength() {
         return length;

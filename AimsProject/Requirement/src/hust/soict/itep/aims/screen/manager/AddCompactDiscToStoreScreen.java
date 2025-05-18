@@ -39,7 +39,6 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen{
             public void actionPerformed(ActionEvent e) {
                 button.isButtonClicked = true;
                 addCD(cell1,cell2,cell3,cell4,cell5);
-                dispose();
             }
         });
 
@@ -54,6 +53,7 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen{
                 System.out.println("Button worked, init add track to cd procedure");
 
                 AddTrackToCompactDisc trackPanel = new AddTrackToCompactDisc(store,cd);
+                dispose();
                 store.addMedia(cd);
 
             } catch (NumberFormatException ex) {

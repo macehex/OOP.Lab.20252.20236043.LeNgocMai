@@ -5,6 +5,8 @@ import hust.soict.itep.aims.media.Playable;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MediaStore extends JPanel {
     private Media media;
@@ -25,6 +27,12 @@ public class MediaStore extends JPanel {
         if(media instanceof Playable){
             JButton playButton = new JButton("Play");
             container.add(playButton);
+            playButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new PlayMediaJDialog(media);
+                }
+            });
         }
 
         this.add(Box.createVerticalGlue());

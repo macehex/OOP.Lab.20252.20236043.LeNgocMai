@@ -35,7 +35,6 @@ public class AddBookToStoreScreen extends AddItemToStoreScreen{
                 button.isButtonClicked = true;
                 addBook(cell1,cell2,cell3);
 
-//                dispose();
             }
         });
 
@@ -51,6 +50,7 @@ public class AddBookToStoreScreen extends AddItemToStoreScreen{
                 AddAuthorToBook authorPanel = new AddAuthorToBook(store,book);
                 store.addMedia(book);
 
+                dispose();
 
             } catch (NumberFormatException ex) {
                 // If parsing fails, catch the exception
