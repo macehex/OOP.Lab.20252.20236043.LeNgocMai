@@ -3,6 +3,8 @@ package hust.soict.itep.aims.media;
 import hust.soict.itep.aims.exception.AimsException;
 import hust.soict.itep.aims.exception.PlayerException;
 
+import javax.swing.*;
+
 public class DigitalVideoDisc extends Disc implements Playable {
 
     private String title;
@@ -35,13 +37,11 @@ public class DigitalVideoDisc extends Disc implements Playable {
     public void play() throws PlayerException {
         if (getLength() < 0) {
             throw new PlayerException("DVD: " + getTitle() + " has no length, cannot play.");
+        } else {
+            String message = "Playing DVD: " + getTitle() + "\nLength: " + getLength();
+            JOptionPane.showMessageDialog(null, message, "Now Playing", JOptionPane.INFORMATION_MESSAGE);
         }
-        else {
-            System.out.println("Playing DVD: " + getTitle());
-            System.out.println("Length: " + getLength());
-        }
-    }
-    @Override
+    }    @Override
     public int compareTo(Media o) {
         if (o instanceof DigitalVideoDisc) {
             DigitalVideoDisc other = (DigitalVideoDisc) o;
